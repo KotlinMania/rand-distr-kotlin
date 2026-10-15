@@ -1,0 +1,22 @@
+{
+  "type": "port",
+  "name": "rand-distr-kotlin",
+  "source": {
+    "path": "tmp/rand_distr/src",
+    "lang": "rust"
+  },
+  "target": {
+    "path": "src/commonMain/kotlin/io/github/kotlinmania/randdistr",
+    "lang": "kotlin"
+  },
+  "checks": {
+    "deep": true,
+    "missing": true,
+    "todos": true,
+    "lint": true
+  },
+  "reexport_modules": [
+    "mod.rs",
+    "lib.rs"
+  ]
+}
