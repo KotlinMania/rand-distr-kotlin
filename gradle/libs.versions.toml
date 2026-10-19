@@ -27,7 +27,7 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "collectionsImmutable" }
 kotlinx-benchmark-runtime = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-runtime", version.ref = "kotlinxBenchmark" }
 rand-kotlin = { module = "io.github.kotlinmania:rand-kotlin", version = "0.1.0" }
-num-traits-kotlin = { module = "io.github.kotlinmania:num-traits-kotlin", version = "0.2.15" }
+num-traits-kotlin = { module = "io.github.kotlinmania:num-traits-kotlin", version = "0.1.0" }
 
 [bundles]
 randdistr-commonMain = [
