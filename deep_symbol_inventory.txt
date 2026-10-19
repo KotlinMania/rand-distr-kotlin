@@ -572,7 +572,7 @@ EXTRA_TARGET_SYMBOL type InverseGaussianTest at src/commonTest/kotlin/io/github/
 EXTRA_TARGET_SYMBOL function InverseGaussianTest::testInverseGaussian at src/commonTest/kotlin/io/github/kotlinmania/randdistr/InverseGaussianTest.kt:9
 EXTRA_TARGET_SYMBOL function InverseGaussianTest::testInverseGaussianInvalidParam at src/commonTest/kotlin/io/github/kotlinmania/randdistr/InverseGaussianTest.kt:18
 EXTRA_TARGET_SYMBOL function InverseGaussianTest::inverseGaussianDistributionsCanBeCompared at src/commonTest/kotlin/io/github/kotlinmania/randdistr/InverseGaussianTest.kt:26
-MISSING_FILE src/lib.rs
+MISSING_FILE lib.rs
 MISSING_SYMBOL function rng at tmp/rand_distr/src/lib.rs:160
 PRESENT type StandardNormal at tmp/rand_distr/src/normal.rs:49 -> src/commonMain/kotlin/io/github/kotlinmania/randdistr/Normal.kt:13
 MISSING_SYMBOL function sample at tmp/rand_distr/src/normal.rs:53
@@ -959,7 +959,7 @@ EXTRA_TARGET_SYMBOL function WeibullTest::invalid at src/commonTest/kotlin/io/gi
 EXTRA_TARGET_SYMBOL function WeibullTest::sample at src/commonTest/kotlin/io/github/kotlinmania/randdistr/WeibullTest.kt:18
 EXTRA_TARGET_SYMBOL function WeibullTest::valueStability at src/commonTest/kotlin/io/github/kotlinmania/randdistr/WeibullTest.kt:30
 EXTRA_TARGET_SYMBOL function WeibullTest::weibullDistributionsCanBeCompared at src/commonTest/kotlin/io/github/kotlinmania/randdistr/WeibullTest.kt:54
-MISSING_FILE src/weighted/mod.rs
+MISSING_FILE weighted/mod.rs
 PRESENT type WeightedAliasIndex at tmp/rand_distr/src/weighted/weighted_alias.rs:77 -> src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:103
 MISSING_SYMBOL function new at tmp/rand_distr/src/weighted/weighted_alias.rs:92
 MISSING_SYMBOL function sample at tmp/rand_distr/src/weighted/weighted_alias.rs:239
@@ -1002,15 +1002,19 @@ EXTRA_TARGET_SYMBOL function WeightedAliasIndex::Companion::err at src/commonMai
 EXTRA_TARGET_SYMBOL function WeightedAliasIndex::Companion::new at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:115
 EXTRA_TARGET_SYMBOL function WeightedAliasIndex::Companion::newFloat at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:188
 EXTRA_TARGET_SYMBOL function WeightedAliasIndex::Companion::newInt at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:261
-EXTRA_TARGET_SYMBOL function WeightedAliasIndex::isOk at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:326
-EXTRA_TARGET_SYMBOL function WeightedAliasIndex::isErr at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:328
-EXTRA_TARGET_SYMBOL function WeightedAliasIndex::unwrap at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:330
-EXTRA_TARGET_SYMBOL function WeightedAliasIndex::unwrapErr at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:337
-EXTRA_TARGET_SYMBOL function WeightedAliasIndex::sample at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:339
+EXTRA_TARGET_SYMBOL function WeightedAliasIndex::Companion::newByte at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:325
+EXTRA_TARGET_SYMBOL function WeightedAliasIndex::Companion::newUByte at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:340
+EXTRA_TARGET_SYMBOL function WeightedAliasIndex::isOk at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:356
+EXTRA_TARGET_SYMBOL function WeightedAliasIndex::isErr at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:358
+EXTRA_TARGET_SYMBOL function WeightedAliasIndex::unwrap at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:360
+EXTRA_TARGET_SYMBOL function WeightedAliasIndex::unwrapErr at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:367
+EXTRA_TARGET_SYMBOL function WeightedAliasIndex::sample at src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAlias.kt:369
 EXTRA_TARGET_SYMBOL type WeightedAliasTest at src/commonTest/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAliasTest.kt:12
 EXTRA_TARGET_SYMBOL function WeightedAliasTest::testWeightedIndexF32 at src/commonTest/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAliasTest.kt:13
 EXTRA_TARGET_SYMBOL function WeightedAliasTest::testWeightedIndexInt at src/commonTest/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAliasTest.kt:78
-EXTRA_TARGET_SYMBOL function WeightedAliasTest::valueStability at src/commonTest/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAliasTest.kt:118
+EXTRA_TARGET_SYMBOL function WeightedAliasTest::testWeightedIndexU8 at src/commonTest/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAliasTest.kt:121
+EXTRA_TARGET_SYMBOL function WeightedAliasTest::testWeightedIndexI8 at src/commonTest/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAliasTest.kt:165
+EXTRA_TARGET_SYMBOL function WeightedAliasTest::valueStability at src/commonTest/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedAliasTest.kt:205
 PRESENT type WeightedTreeIndex at tmp/rand_distr/src/weighted/weighted_tree.rs:90 -> src/commonMain/kotlin/io/github/kotlinmania/randdistr/weighted/WeightedTree.kt:42
 MISSING_SYMBOL function new at tmp/rand_distr/src/weighted/weighted_tree.rs:104
 MISSING_SYMBOL function is_empty at tmp/rand_distr/src/weighted/weighted_tree.rs:127

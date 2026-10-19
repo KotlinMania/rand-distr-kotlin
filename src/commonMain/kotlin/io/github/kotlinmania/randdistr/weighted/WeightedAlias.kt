@@ -321,6 +321,36 @@ public class WeightedAliasIndex internal constructor(
                 error = null,
             )
         }
+
+        internal fun newByte(weights: ByteArray): WeightedAliasIndex {
+            val n = weights.size
+            if (n == 0) {
+                return err(WeightedError.InvalidInput)
+            }
+            val maxWeightSize = (Byte.MAX_VALUE / n).toByte()
+            for (w in weights) {
+                if (!(0 <= w && w <= maxWeightSize)) {
+                    return err(WeightedError.InvalidWeight)
+                }
+            }
+            val intWeights = IntArray(n) { weights[it].toInt() }
+            return newInt(intWeights)
+        }
+
+        internal fun newUByte(weights: UByteArray): WeightedAliasIndex {
+            val n = weights.size
+            if (n == 0) {
+                return err(WeightedError.InvalidInput)
+            }
+            val maxWeightSize = 255 / n
+            for (w in weights) {
+                if (w.toInt() > maxWeightSize) {
+                    return err(WeightedError.InvalidWeight)
+                }
+            }
+            val intWeights = IntArray(n) { weights[it].toInt() }
+            return newInt(intWeights)
+        }
     }
 
     public fun isOk(): Boolean = error == null
