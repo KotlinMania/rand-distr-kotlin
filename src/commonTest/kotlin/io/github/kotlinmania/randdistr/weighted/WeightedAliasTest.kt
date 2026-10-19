@@ -115,6 +115,93 @@ class WeightedAliasTest {
         )
     }
 
+    // Rust u128 primitive integer type has no native primitive representation in Kotlin.
+    // Rust i128 primitive integer type has no native primitive representation in Kotlin.
+
+    @Test
+    fun testWeightedIndexU8() {
+        val numWeights = 10
+        val zeroWeightIndex = 3
+        val numSamples = 15000
+        val rng = testRng(0x9c9fa0b0580a7031uL)
+
+        val randomWeightDistribution = Uniform.newInclusive(0, 255 / numWeights).unwrap()
+        val weights = UByteArray(numWeights) { rng.sample(randomWeightDistribution).toUByte() }
+        weights[zeroWeightIndex] = 0u
+
+        val weightSum = weights.sumOf { it.toInt() }
+        val expectedCounts =
+            DoubleArray(numWeights) {
+                weights[it].toDouble() / weightSum.toDouble() * numSamples.toDouble()
+            }
+        val weightDistribution = WeightedAliasIndex.newUByte(weights).unwrap()
+
+        val counts = IntArray(numWeights)
+        repeat(numSamples) {
+            counts[rng.sample(weightDistribution)] += 1
+        }
+
+        assertEquals(0, counts[zeroWeightIndex])
+        for (i in 0 until numWeights) {
+            val difference = abs(counts[i].toDouble() - expectedCounts[i])
+            val maxAllowedDifference = numSamples.toDouble() / numWeights.toDouble() * 0.1
+            assertTrue(difference <= maxAllowedDifference)
+        }
+
+        assertEquals(
+            WeightedError.InvalidInput,
+            WeightedAliasIndex.newUByte(ubyteArrayOf()).unwrapErr(),
+        )
+        assertEquals(
+            WeightedError.InsufficientNonZero,
+            WeightedAliasIndex.newUByte(ubyteArrayOf(0u)).unwrapErr(),
+        )
+        assertEquals(
+            WeightedError.InvalidWeight,
+            WeightedAliasIndex.newUByte(ubyteArrayOf(255u, 255u)).unwrapErr(),
+        )
+    }
+
+    @Test
+    fun testWeightedIndexI8() {
+        val numWeights = 10
+        val zeroWeightIndex = 3
+        val numSamples = 15000
+        val rng = testRng(0x9c9fa0b0580a7031uL)
+
+        val randomWeightDistribution = Uniform.newInclusive(0, 127 / numWeights).unwrap()
+        val weights = ByteArray(numWeights) { rng.sample(randomWeightDistribution).toByte() }
+        weights[zeroWeightIndex] = 0
+
+        val weightSum = weights.sumOf { it.toInt() }
+        val expectedCounts =
+            DoubleArray(numWeights) {
+                weights[it].toDouble() / weightSum.toDouble() * numSamples.toDouble()
+            }
+        val weightDistribution = WeightedAliasIndex.newByte(weights).unwrap()
+
+        val counts = IntArray(numWeights)
+        repeat(numSamples) {
+            counts[rng.sample(weightDistribution)] += 1
+        }
+
+        assertEquals(0, counts[zeroWeightIndex])
+        for (i in 0 until numWeights) {
+            val difference = abs(counts[i].toDouble() - expectedCounts[i])
+            val maxAllowedDifference = numSamples.toDouble() / numWeights.toDouble() * 0.1
+            assertTrue(difference <= maxAllowedDifference)
+        }
+
+        assertEquals(
+            WeightedError.InvalidWeight,
+            WeightedAliasIndex.newByte(byteArrayOf((-1).toByte())).unwrapErr(),
+        )
+        assertEquals(
+            WeightedError.InvalidWeight,
+            WeightedAliasIndex.newByte(byteArrayOf(Byte.MIN_VALUE)).unwrapErr(),
+        )
+    }
+
     @Test
     fun valueStability() {
         val distrInt = WeightedAliasIndex.newInt(intArrayOf(1, 1, 1, 1, 1, 1, 1, 1, 1)).unwrap()

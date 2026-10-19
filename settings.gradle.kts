@@ -21,4 +21,3 @@ rootProject.name = "rand-distr-kotlin"
 if (file("../num-traits-kotlin").exists()) {
     includeBuild("../num-traits-kotlin")
 }
-
